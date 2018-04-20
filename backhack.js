@@ -52,7 +52,7 @@
         console.log('executing backHack action!');
         const modal = document.getElementById('backhackModal');
         modal && modal.classList.remove('hidden');
-        alert('backhack');
+        // alert('backhack');
     }
 
     function shouldExecuteBackHack() {

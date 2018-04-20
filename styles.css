@@ -15,4 +15,7 @@ a {
 
 #backhackModal {
     color: red;
+    text-align: center;
+    padding: 20px;
+    border: 2px dashed red;
 }
