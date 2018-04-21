@@ -14,9 +14,17 @@
     }
 
     function shouldEnableBackHack() {
-        return document.referrer && !document.referrer.includes(window.location.host)
-            && (window.history.length > 1)
-            && !window.sessionStorage.getItem('backHackEnabled');
+        const newVisit = document.referrer && !document.referrer.includes(window.location.host)
+            && !window.sessionStorage.getItem('backHackEnabled')
+            && !window.sessionStorage.getItem('newTab');
+
+        if (newVisit && window.history.length <= 1) {
+            // page opened in new tab
+            window.sessionStorage.setItem('newTab', 'true');
+            return false;
+        }
+
+        return newVisit;
     }
 
     function enableBackHack() {
